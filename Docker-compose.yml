@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: static-portfolio-app
+    ports:
+      - "8080:80" # Maps port 8080 on your host to port 80 inside the container
+    restart: always
