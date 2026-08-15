@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.myportfolio</groupId>
+  <artifactId>portfolio-app</artifactId>
+  <versioning>
+    <lastUpdated>20260715114718</lastUpdated>
+    <snapshot>
+      <timestamp>20260715.114718</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-20260715.114718-1</value>
+        <updated>20260715114718</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>war</extension>
+        <value>1.0-20260715.114718-1</value>
+        <updated>20260715114718</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.0-SNAPSHOT</version>
+</metadata>

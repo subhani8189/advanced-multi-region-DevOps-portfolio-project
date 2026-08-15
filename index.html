@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaik Subhani | Cloud &amp; DevOps Engineer</title>
+  <meta name="description" content="Professional portfolio of Shaik Subhani, Cloud &amp; DevOps Engineer specializing in AWS automation, Terraform, Docker, Kubernetes, and CI/CD pipelines.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Devicon for dev icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <!-- Link stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Sticky Header Nav -->
+  <header id="header">
+    <div class="container">
+      <a href="#" class="logo">
+        Subhani<span class="gold">.</span>
+      </a>
+      
+      <nav id="nav-menu">
+        <ul>
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#linkedin-activity" class="nav-link">LinkedIn</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="hero-greeting">Welcome to my space</span>
+            <h1 class="hero-name">SHAIK SUBHANI</h1>
+            <h2 class="hero-title">Cloud &amp; DevOps Engineer</h2>
+            
+            <div class="hero-info-row">
+              <span class="hero-info-item">
+                <i class="fa-solid fa-location-dot"></i> Guntur, AP, India
+              </span>
+              <span class="hero-info-item">
+                <i class="fa-solid fa-envelope"></i> subhani8189@gmail.com
+              </span>
+              <span class="hero-info-item">
+                <i class="fa-solid fa-phone"></i> +91 9581898026
+              </span>
+            </div>
+            
+            <div class="hero-ctas">
+              <a href="#contact" class="btn btn-primary" id="btn-cta-contact">Get In Touch</a>
+              <button class="btn btn-secondary" id="btn-cta-resume">Download Resume</button>
+            </div>
+          </div>
+          
+          <div class="hero-artwork">
+            <div class="hero-avatar-wrapper">
+              <img src="profile.jpg" alt="Shaik Subhani" class="hero-avatar-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about fade-in-section">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-content-box">
+          <p class="about-text">
+            Hi, I'm Shaik Subhani, a Cloud &amp; DevOps Engineer who thrives on transforming complex manual processes into seamless, automated systems. Currently completing my B.Tech in Computer Science at Chalapathi Institute of Technology (Class of 2026), I specialize in building the hidden machinery that keeps modern applications running fast and securely.
+          </p>
+          <p class="about-text">
+            I am a builder and a problem-solver at heart. My journey spans from architecting scalable AWS environments and crafting robust CI/CD pipelines. Beyond the terminal, I am deeply passionate about continuous learning—whether that's tackling competitive programming challenges in Python, or sharing my tech journey through my YouTube channel.
+          </p>
+          <p class="about-text">
+            My professional philosophy is simple: I don't just deploy applications; I architect the highly available, efficient infrastructure that allows great software to thrive. Let's build something scalable together.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Expertise (Skills) Section -->
+    <section id="skills" class="skills fade-in-section">
+      <div class="container">
+        <h2>Technical Expertise</h2>
+        
+        <div class="skills-tabs">
+          <button class="tab-btn active" data-filter="all">All Skills</button>
+          <button class="tab-btn" data-filter="cloud">Cloud Platforms</button>
+          <button class="tab-btn" data-filter="devops">DevOps &amp; IaC</button>
+          <button class="tab-btn" data-filter="tools">Tools &amp; OS</button>
+        </div>
+        
+        <div class="skills-grid" id="skills-container">
+          <!-- Cloud Platforms -->
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></div>
+            <span class="skill-name">AWS Cloud</span>
+            <span class="skill-level">Architecting</span>
+          </div>
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
+            <span class="skill-name">AWS Lambda</span>
+            <span class="skill-level">Serverless</span>
+          </div>
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-network-wired"></i></div>
+            <span class="skill-name">AWS VPC</span>
+            <span class="skill-level">Networking</span>
+          </div>
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="devicon-kubernetes-plain colored"></i></div>
+            <span class="skill-name">AWS EKS</span>
+            <span class="skill-level">K8s Clusters</span>
+          </div>
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-box-open"></i></div>
+            <span class="skill-name">AWS S3</span>
+            <span class="skill-level">Static Hosting</span>
+          </div>
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-database"></i></div>
+            <span class="skill-name">DynamoDB</span>
+            <span class="skill-level">NoSQL</span>
+          </div>
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-route"></i></div>
+            <span class="skill-name">API Gateway</span>
+            <span class="skill-level">APIs</span>
+          </div>
+
+          <!-- DevOps & IaC -->
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-terraform-plain colored"></i></div>
+            <span class="skill-name">Terraform</span>
+            <span class="skill-level">IaC Automation</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-docker-plain colored"></i></div>
+            <span class="skill-name">Docker</span>
+            <span class="skill-level">Containers</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-kubernetes-plain colored"></i></div>
+            <span class="skill-name">Kubernetes</span>
+            <span class="skill-level">Orchestration</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-jenkins-line colored"></i></div>
+            <span class="skill-name">Jenkins</span>
+            <span class="skill-level">Pipelines</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-githubactions-plain colored"></i></div>
+            <span class="skill-name">GitHub Actions</span>
+            <span class="skill-level">CI/CD</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-argocd-plain colored"></i></div>
+            <span class="skill-name">ArgoCD</span>
+            <span class="skill-level">GitOps</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-sonarqube-plain colored"></i></div>
+            <span class="skill-name">SonarQube</span>
+            <span class="skill-level">SAST Scan</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-ansible-plain colored"></i></div>
+            <span class="skill-name">Ansible</span>
+            <span class="skill-level">Configuration</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-prometheus-original colored"></i></div>
+            <span class="skill-name">Prometheus</span>
+            <span class="skill-level">Monitoring</span>
+          </div>
+          <div class="skill-card" data-category="devops">
+            <div class="skill-icon-wrapper"><i class="devicon-grafana-original colored"></i></div>
+            <span class="skill-name">Grafana</span>
+            <span class="skill-level">Visualization</span>
+          </div>
+
+          <!-- Tools & OS -->
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon-wrapper"><i class="devicon-python-plain colored"></i></div>
+            <span class="skill-name">Python</span>
+            <span class="skill-level">Automation</span>
+          </div>
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon-wrapper"><i class="devicon-bash-plain colored"></i></div>
+            <span class="skill-name">Bash Scripting</span>
+            <span class="skill-level">Shell Scripts</span>
+          </div>
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-database"></i></div>
+            <span class="skill-name">SQL</span>
+            <span class="skill-level">Databases</span>
+          </div>
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon-wrapper"><i class="devicon-linux-plain colored"></i></div>
+            <span class="skill-name">Linux</span>
+            <span class="skill-level">SysAdmin</span>
+          </div>
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon-wrapper"><i class="devicon-git-plain colored"></i></div>
+            <span class="skill-name">Git</span>
+            <span class="skill-level">Versioning</span>
+          </div>
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon-wrapper"><i class="fa-solid fa-cubes"></i></div>
+            <span class="skill-name">ServiceNow</span>
+            <span class="skill-level">Administration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Projects (Selected Works) Section -->
+    <section id="projects" class="projects fade-in-section">
+      <div class="container">
+        <h2>Engineering Projects</h2>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-meta">
+              <span class="project-date">02/2026 - Present</span>
+              <span class="project-icon"><i class="fa-solid fa-terminal"></i></span>
+            </div>
+            <h3 class="project-title">Infrastructure Automation Specialist</h3>
+            <h4 class="project-subtitle">AWS &amp; Terraform Integration</h4>
+            <ul class="project-highlights">
+              <li>Automated multi-environment AWS provisioning with Terraform, reducing manual deployment setup time by 50%.</li>
+              <li>Architected and constructed secure, event-driven serverless web apps using Lambda, API Gateway, and DynamoDB.</li>
+              <li>Deployed containerized services via Docker and managed scaling patterns within Kubernetes orchestration.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="project-tag">Terraform</span>
+              <span class="project-tag">AWS</span>
+              <span class="project-tag">Lambda</span>
+              <span class="project-tag">Kubernetes</span>
+              <span class="project-tag">Docker</span>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-meta">
+              <span class="project-date">02/2026</span>
+              <span class="project-icon"><i class="fa-solid fa-shield-halved"></i></span>
+            </div>
+            <h3 class="project-title">Secure Website Hosting</h3>
+            <h4 class="project-subtitle">Network Architecture Optimization</h4>
+            <ul class="project-highlights">
+              <li>Built highly available, fault-tolerant infrastructure environments incorporating EC2, VPCs, and Application Load Balancers.</li>
+              <li>Standardized cloud resource configurations with reusable Terraform modules, minimizing deployment errors by 30%.</li>
+              <li>Optimized resource utilization and cloud instance sizing, cutting projected infrastructure spend by 15%.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="project-tag">AWS EC2</span>
+              <span class="project-tag">VPC</span>
+              <span class="project-tag">ALB</span>
+              <span class="project-tag">Terraform Modules</span>
+              <span class="project-tag">Cost Optimization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LinkedIn Activities & Live Profiles Slider Section -->
+    <section id="linkedin-activity" class="linkedin-section fade-in-section">
+      <div class="container">
+        <h2>LinkedIn &amp; Live Profiles</h2>
+        
+        <div class="slider-wrapper">
+          <div class="slider-container" id="linkedin-slider">
+            
+            <!-- Slide 1 -->
+            <div class="slide active">
+              <div class="linkedin-card">
+                <div class="linkedin-header">
+                  <img src="profile.jpg" alt="Shaik Subhani" class="linkedin-avatar">
+                  <div class="linkedin-user-info">
+                    <span class="linkedin-name">SHAIK SUBHANI</span>
+                    <span class="linkedin-title">Cloud &amp; DevOps Engineer</span>
+                    <span class="linkedin-time">2w &bull; <i class="fa-solid fa-earth-americas"></i></span>
+                  </div>
+                  <a href="https://linkedin.com/in/sk-subhani-661555228" target="_blank" rel="noopener noreferrer" class="linkedin-follow-btn"><i class="fa-brands fa-linkedin"></i> Profile</a>
+                </div>
+                <div class="linkedin-content">
+                  <p class="linkedin-text">
+                    🚀 Thrilled to share that I have successfully automated our multi-environment AWS infrastructure deployment using Terraform! By modularizing our VPC, EC2, and ALB provisioning, we cut down manual setup times by over 50% while reducing configuration errors. Next stop: integrating full GitOps with ArgoCD. Always learning!
+                  </p>
+                  <div class="linkedin-hashtags">
+                    #DevOps #AWS #Terraform #InfrastructureAsCode #CloudEngineering
+                  </div>
+                </div>
+                <div class="linkedin-attachment">
+                  <div class="attachment-preview code-preview">
+                    <div class="terminal-header-bar">
+                      <span class="terminal-dot red"></span>
+                      <span class="terminal-dot yellow"></span>
+                      <span class="terminal-dot green"></span>
+                      <span class="terminal-title-text">main.tf</span>
+                    </div>
+                    <pre><code>module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "5.0.0"
+
+  name = "prod-vpc"
+  cidr = "10.0.0.0/16"
+  
+  azs             = ["ap-south-1a", "ap-south-1b"]
+  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
+}</code></pre>
+                    </div>
+                </div>
+                <div class="linkedin-footer">
+                  <span class="linkedin-likes"><i class="fa-solid fa-thumbs-up"></i> 142 Likes</span>
+                  <span class="linkedin-comments">12 Comments</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+              <div class="linkedin-card">
+                <div class="linkedin-header">
+                  <img src="profile.jpg" alt="Shaik Subhani" class="linkedin-avatar">
+                  <div class="linkedin-user-info">
+                    <span class="linkedin-name">SHAIK SUBHANI</span>
+                    <span class="linkedin-title">Cloud &amp; DevOps Engineer</span>
+                    <span class="linkedin-time">1mo &bull; <i class="fa-solid fa-earth-americas"></i></span>
+                  </div>
+                  <a href="https://linkedin.com/in/sk-subhani-661555228" target="_blank" rel="noopener noreferrer" class="linkedin-follow-btn"><i class="fa-brands fa-linkedin"></i> Profile</a>
+                </div>
+                <div class="linkedin-content">
+                  <p class="linkedin-text">
+                    🎓 Proud to announce that I am now a ServiceNow Certified System Administrator (CSA)! 🌟 This journey has strengthened my understanding of IT service management (ITSM), workflow automation, platform configuration, and catalog administration. Looking forward to leveraging these automation integrations!
+                  </p>
+                  <div class="linkedin-hashtags">
+                    #ServiceNow #Certification #ITSM #SysAdmin #ContinuousLearning
+                  </div>
+                </div>
+                <div class="linkedin-attachment">
+                  <div class="attachment-preview cert-preview">
+                    <div class="cert-glow-badge">
+                      <i class="fa-solid fa-certificate"></i>
+                      <h4>ServiceNow Certified System Administrator</h4>
+                      <p>Credential ID: CSA-2025-04</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="linkedin-footer">
+                  <span class="linkedin-likes"><i class="fa-solid fa-thumbs-up"></i> 198 Likes</span>
+                  <span class="linkedin-comments">24 Comments</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+              <div class="linkedin-card">
+                <div class="linkedin-header">
+                  <img src="profile.jpg" alt="Shaik Subhani" class="linkedin-avatar">
+                  <div class="linkedin-user-info">
+                    <span class="linkedin-name">SHAIK SUBHANI</span>
+                    <span class="linkedin-title">Cloud &amp; DevOps Engineer</span>
+                    <span class="linkedin-time">3mo &bull; <i class="fa-solid fa-earth-americas"></i></span>
+                  </div>
+                  <a href="https://linkedin.com/in/sk-subhani-661555228" target="_blank" rel="noopener noreferrer" class="linkedin-follow-btn"><i class="fa-brands fa-linkedin"></i> Profile</a>
+                </div>
+                <div class="linkedin-content">
+                  <p class="linkedin-text">
+                    ☁️ Completed the AWS Academy Cloud Architecting course! Grateful for the deep dive into VPC networking, load balancing, serverless architectures with Lambda &amp; DynamoDB, and cost optimization techniques. Ready to build highly available, secure, and cost-efficient cloud systems.
+                  </p>
+                  <div class="linkedin-hashtags">
+                    #AWS #CloudComputing #CloudArchitect #Serverless #ContinuousLearning
+                  </div>
+                </div>
+                <div class="linkedin-attachment">
+                  <div class="attachment-preview aws-preview">
+                    <div class="aws-badge-content">
+                      <i class="fa-brands fa-aws"></i>
+                      <h4>AWS Academy Graduate</h4>
+                      <p>Cloud Architecting Course Completion</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="linkedin-footer">
+                  <span class="linkedin-likes"><i class="fa-solid fa-thumbs-up"></i> 165 Likes</span>
+                  <span class="linkedin-comments">15 Comments</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Slider Navigation Arrows -->
+          <button class="slider-arrow prev" id="slider-prev" aria-label="Previous Slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-arrow next" id="slider-next" aria-label="Next Slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          
+          <!-- Slider Navigation Dots -->
+          <div class="slider-dots" id="slider-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+
+        <!-- Live Linked Accounts Grid -->
+        <div class="linked-accounts-section-wrapper">
+          <div class="linked-accounts-title">
+            <h3>My Digital Footprint</h3>
+            <p>Verified professional profiles and live accounts</p>
+          </div>
+          
+          <div class="linked-accounts-grid">
+            <!-- LinkedIn Card -->
+            <a href="https://linkedin.com/in/sk-subhani-661555228" target="_blank" rel="noopener noreferrer" class="linked-account-card linkedin">
+              <div class="account-glow"></div>
+              <div class="account-header">
+                <i class="fa-brands fa-linkedin-in brand-icon"></i>
+                <span class="status-indicator live">Live</span>
+              </div>
+              <h4 class="account-name">LinkedIn</h4>
+              <p class="account-desc">SK-SUBHANI-661555228</p>
+              <span class="account-action">Connect Profile <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <!-- GitHub Card -->
+            <a href="https://github.com/subhani8189" target="_blank" rel="noopener noreferrer" class="linked-account-card github">
+              <div class="account-glow"></div>
+              <div class="account-header">
+                <i class="fa-brands fa-github brand-icon"></i>
+                <span class="status-indicator live">Live</span>
+              </div>
+              <h4 class="account-name">GitHub</h4>
+              <p class="account-desc">subhani8189</p>
+              <span class="account-action">View Repositories <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <!-- AWS Academy Card -->
+            <a href="#education" class="linked-account-card aws">
+              <div class="account-glow"></div>
+              <div class="account-header">
+                <i class="fa-brands fa-aws brand-icon"></i>
+                <span class="status-indicator verified">Verified</span>
+              </div>
+              <h4 class="account-name">AWS Academy</h4>
+              <p class="account-desc">Cloud Architect Graduate</p>
+              <span class="account-action">View Credentials <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <!-- ServiceNow Card -->
+            <a href="#education" class="linked-account-card servicenow">
+              <div class="account-glow"></div>
+              <div class="account-header">
+                <div class="brand-icon-wrapper"><i class="fa-solid fa-certificate"></i></div>
+                <span class="status-indicator verified">Verified</span>
+              </div>
+              <h4 class="account-name">ServiceNow</h4>
+              <p class="account-desc">Certified System Admin</p>
+              <span class="account-action">View Certification <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience (Professional Journey) Section -->
+    <section id="experience" class="experience fade-in-section">
+      <div class="container">
+        <h2>Experience</h2>
+        
+        <div class="experience-timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-title">UI/UX Intern</h3>
+                <div class="timeline-company">Eficaa Ensmart Solutions, Hyderabad</div>
+                <span class="timeline-date">06/2025 - 07/2025</span>
+              </div>
+              <div class="timeline-content">
+                <ul>
+                  <li>Translated client needs and interface requirements into technical design documentation within an agile development team environment.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-title">Student Tech</h3>
+                <div class="timeline-company">E-Cell, IIT Bombay</div>
+                <span class="timeline-date">2025</span>
+              </div>
+              <div class="timeline-content">
+                <ul>
+                  <li>Troubleshot and resolved critical technical issues during fast-paced development sprints, ensuring timely milestone execution.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Credentials Section -->
+    <section id="education" class="edu-cert fade-in-section">
+      <div class="container">
+        <div class="edu-cert-grid">
+          <!-- Education Column -->
+          <div>
+            <h3>Education</h3>
+            <div class="edu-card">
+              <div class="edu-item">
+                <h4 class="edu-degree">B.Tech in Computer Science &amp; Engineering</h4>
+                <div class="edu-institute">Chalapathi Institute of Technology</div>
+                <div class="edu-details">
+                  <span>Graduation Year: <strong>2026</strong></span>
+                  <span>CGPA: <strong>7.5 / 10.0</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Credentials Column -->
+          <div>
+            <h3>Certifications</h3>
+            <div class="cert-card">
+              <div class="cert-list">
+                <!-- Cert 1 -->
+                <div class="cert-row">
+                  <div class="cert-icon-bullet"><i class="fa-solid fa-certificate"></i></div>
+                  <div class="cert-row-info">
+                    <span class="cert-row-name">ServiceNow Certified System Administrator</span>
+                    <span class="cert-row-date">04/2025</span>
+                  </div>
+                </div>
+                <!-- Cert 2 -->
+                <div class="cert-row">
+                  <div class="cert-icon-bullet"><i class="fa-solid fa-cloud"></i></div>
+                  <div class="cert-row-info">
+                    <span class="cert-row-name">AWS Academy Cloud Architecting</span>
+                    <span class="cert-row-date">06/2024</span>
+                  </div>
+                </div>
+                <!-- Cert 3 -->
+                <div class="cert-row">
+                  <div class="cert-icon-bullet"><i class="fa-solid fa-graduation-cap"></i></div>
+                  <div class="cert-row-info">
+                    <span class="cert-row-name">NPTEL Cloud Computing</span>
+                    <span class="cert-row-date">07/2024</span>
+                  </div>
+                </div>
+                <!-- Cert 4 -->
+                <div class="cert-row">
+                  <div class="cert-icon-bullet"><i class="fa-solid fa-chart-simple"></i></div>
+                  <div class="cert-row-info">
+                    <span class="cert-row-name">Microsoft Power BI</span>
+                    <span class="cert-row-date">02/2025</span>
+                  </div>
+                </div>
+                <!-- Cert 5 -->
+                <div class="cert-row">
+                  <div class="cert-icon-bullet"><i class="fa-solid fa-microchip"></i></div>
+                  <div class="cert-row-info">
+                    <span class="cert-row-name">AWS IoT Virtual Internship</span>
+                    <span class="cert-row-date">2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Let's Connect Section -->
+    <section id="contact" class="fade-in-section">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h2 class="footer-title">Let's Connect</h2>
+            <p class="footer-desc">
+              I am open to new opportunities, collaboration, and conversations about DevOps, cloud-native deployments, and automation. Drop a message or reach out via email!
+            </p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-btn-icon"><i class="fa-solid fa-envelope"></i></span>
+                <a href="mailto:subhani8189@gmail.com">subhani8189@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-btn-icon"><i class="fa-solid fa-phone"></i></span>
+                <a href="tel:+919581898026">+91 9581898026</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-btn-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <span>Guntur, AP, India</span>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <form class="contact-form" id="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully! (Note: This is a demo form)');">
+              <div class="form-group">
+                <label for="form-name">Your Name</label>
+                <input type="text" id="form-name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="form-email">Your Email</label>
+                <input type="email" id="form-email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="form-msg">Your Message</label>
+                <textarea id="form-msg" class="form-control" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Shaik Subhani. All rights reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/subhani8189" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/sk-subhani-661555228" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

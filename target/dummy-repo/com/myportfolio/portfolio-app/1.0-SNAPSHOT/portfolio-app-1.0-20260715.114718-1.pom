@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.myportfolio</groupId>
+    <artifactId>portfolio-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- Add your Java backend dependencies here, e.g., Servlets, Spring Boot, etc. -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <!-- This tells Maven not to fail when web.xml is missing -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- This section allows the 'mvn deploy' command to run successfully for testing -->
+    <distributionManagement>
+        <repository>
+            <id>dummy-local-repo</id>
+            <name>Dummy Local Repository</name>
+            <!-- Deploys the artifact to a dummy folder inside your target directory -->
+            <url>file://${project.build.directory}/dummy-repo</url>
+        </repository>
+    </distributionManagement>
+
+</project>
