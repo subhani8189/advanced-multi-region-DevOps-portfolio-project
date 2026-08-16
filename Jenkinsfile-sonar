@@ -1,0 +1,27 @@
+pipeline {
+    agent { 
+        label 'slave-2' 
+    }
+
+    stages {
+        stage('Clone Application Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('SonarQube Code Quality Check') {
+            steps {
+                script {
+                    // 'sonar-scanner' must match the name you set in Jenkins -> Tools
+                    def scannerHome = tool 'sonar-scanner'
+                    
+                    // 'sonar-server' must match the name you set in Jenkins -> System
+                    withSonarQubeEnv('sonar-server') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
+    }
+}
