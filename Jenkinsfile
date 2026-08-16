@@ -7,8 +7,10 @@ pipeline {
         DOCKERHUB_CREDENTIALS = 'docker-hub'
         DOCKER_REPO = 'subhani8189/my_portifilio-portfolio-web'
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
-        CONTAINER_NAME = 'portfolio-web-app'
-        HOST_PORT = '8081' 
+        
+        // Kubernetes specific variables
+        K8S_DEPLOYMENT = 'portfolio-deployment'
+        K8S_CONTAINER = 'portfolio-container'
     }
 
     stages {
@@ -38,11 +40,11 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    sh "docker rm -f ${CONTAINER_NAME} || true"
-                    sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
+                    // This command uses the config file we copied to the slave to update the cluster
+                    sh "kubectl --kubeconfig=/home/ubuntu/.kube/config set image deployment/${K8S_DEPLOYMENT} ${K8S_CONTAINER}=${DOCKER_REPO}:${IMAGE_TAG}"
                 }
             }
         }
