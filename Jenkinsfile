@@ -7,71 +7,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = 'docker-hub'
         DOCKER_REPO = 'subhani8189/my_portifilio-portfolio-web'
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
-        CONTAINER_NAME = 'portfolio-web-app'
-        HOST_PORT = '8081' 
-    }apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: portfolio-deployment
-  labels:
-    app: portfolio-web
-spec:
-  # This tells Kubernetes to run 3 containers, automatically distributed across slave-1 and slave-2
-  replicas: 3
-  selector:
-    matchLabels:
-      app: portfolio-web
-  template:
-    metadata:
-      labels:
-        app: portfolio-web
-    spec:
-      containers:
-      - name: portfolio-container
-        # Jenkins will inject the exact version tag here
-        image: subhani8189/my_portifilio-portfolio-web:__IMAGE_TAG__
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "250m"
-            memory: "256Mi"
-        
-        # Auto-heals the container if it crashes on any slave node
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          failureThreshold: 3
-          
-        # Ensures the Load Balancer only sends traffic to fully running containers
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          successThreshold: 1
-          failureThreshold: 3
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: portfolio-loadbalancer
-spec:
-  type: LoadBalancer
-  selector:
-    app: portfolio-web 
-  ports:
-    - protocol: TCP
-      port: 80       
-      targetPort: 80
+    }
 
     stages {
         stage('Clone Application Code') {
@@ -100,12 +36,12 @@ spec:
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Deploy to Kubernetes Cluster') {
             steps {
                 script {
-                    sh "docker rm -f ${CONTAINER_NAME} || true"
-                    // Corrected mapping: Host Port (8081) connects to Container Port (80)
-                    sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
+                    sh "sed -i 's/__IMAGE_TAG__/${IMAGE_TAG}/g' portfolio-app.yaml"
+                    sh "kubectl --kubeconfig=/home/ubuntu/.kube/config apply -f portfolio-app.yaml"
+                    sh "kubectl --kubeconfig=/home/ubuntu/.kube/config rollout status deployment/portfolio-deployment"
                 }
             }
         }
