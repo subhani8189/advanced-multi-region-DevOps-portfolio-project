@@ -10,7 +10,28 @@ pipeline {
         // Docker Local Run Variables
         CONTAINER_NAME = 'portfolio-web-app'
         HOST_PORT = '8081' 
+        pipeline {
+    agent any
+    
+    environment {
+        // Docker Credentials & Repo
+        DOCKERHUB_CREDENTIALS = 'docker-hub'
+        DOCKER_REPO = 'subhani8189/my_portifilio-portfolio-web'
+        IMAGE_TAG = "v${env.BUILD_NUMBER}" 
         
+        // Docker Local Run Variables
+        CONTAINER_NAME = 'portfolio-web-app'
+        HOST_PORT = '8081' 
+        
+        // Kubernetes Variables
+        K8S_DEPLOYMENT_NAME = 'portfolio-deployment'
+        K8S_CONTAINER_NAME = 'portfolio-container'
+        
+        // Tell kubectl exactly where the config file is
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
+    }
+    
+    // ... rest of your stages ...
         // Kubernetes Variables (Update these to match your actual K8s deployment names)
         K8S_DEPLOYMENT_NAME = 'portfolio-deployment'
         K8S_CONTAINER_NAME = 'portfolio-container'
