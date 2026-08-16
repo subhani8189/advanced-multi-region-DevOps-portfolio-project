@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Master Node Server Metrics
+  - job_name: 'k8s-master'
+    static_configs:
+      - targets: ['172.31.40.197:9100']
+
+  # Slave 1 Node Server Metrics
+  - job_name: 'k8s-slave-1'
+    static_configs:
+      - targets: ['172.31.44.75:9100']
+
+  # Slave 2 Node Server Metrics (and Jenkins Host)
+  - job_name: 'k8s-slave-2'
+    static_configs:
+      - targets: ['172.31.44.35:9100']
+
+  # Jenkins Metrics
+  - job_name: 'jenkins'
+    metrics_path: '/prometheus/'
+    static_configs:
+      - targets: ['172.31.40.197:8080']
