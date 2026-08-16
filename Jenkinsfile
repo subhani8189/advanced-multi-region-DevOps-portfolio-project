@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        label 'deploy-node' 
+        label 'slave-2' 
     }
     
     environment {
