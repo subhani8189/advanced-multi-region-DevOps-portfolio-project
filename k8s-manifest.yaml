@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: static-website-deployment
+  # 1. FIXED: Changed to match Jenkins
+  name: portfolio-deployment
   labels:
-    app: static-website
+    app: portfolio-web
 spec:
-  # Maintains exactly 3 running replicas of your container at all times
   replicas: 3
   selector:
     matchLabels:
-      app: static-website
+      app: portfolio-web
   template:
     metadata:
       labels:
-        app: static-website
+        app: portfolio-web
     spec:
       containers:
-      - name: nginx-container
-        # The image you pushed during the CI phase
-        image: subhani8189/my_portifilio-portfolio-web:latest
+      # 2. FIXED: Changed to match Jenkins
+      - name: portfolio-container
+        # 3. FIXED: Jenkins will find this placeholder and replace it with your exact build number (like v34)
+        image: subhani8189/my_portifilio-portfolio-web:__IMAGE_TAG__
         ports:
         - containerPort: 80
         resources:
@@ -52,12 +53,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: static-website-loadbalancer
+  name: portfolio-loadbalancer
 spec:
-  # Provisions a cloud load balancer to route traffic to your pods
   type: LoadBalancer
   selector:
-    app: static-website 
+    app: portfolio-web 
   ports:
     - protocol: TCP
       port: 80       
