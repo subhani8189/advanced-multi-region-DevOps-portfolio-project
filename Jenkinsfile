@@ -2,21 +2,13 @@ pipeline {
     agent any
     
     environment {
-        // Docker Credentials & Repo
         DOCKERHUB_CREDENTIALS = 'docker-hub'
         DOCKER_REPO = 'subhani8189/my_portifilio-portfolio-web'
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
-        
-        // Docker Local Run Variables
+        // Define container details
         CONTAINER_NAME = 'portfolio-web-app'
+        // Using 8081 since Jenkins usually runs on 8080
         HOST_PORT = '8081' 
-        
-        // Kubernetes Variables
-        K8S_DEPLOYMENT_NAME = 'portfolio-deployment'
-        K8S_CONTAINER_NAME = 'portfolio-container'
-        
-        // Tell kubectl exactly where the config file is
-        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
@@ -46,23 +38,14 @@ pipeline {
             }
         }
 
-        stage('Run Locally in Docker') {
+        stage('Run Docker Container') {
             steps {
                 script {
+                    // 1. Remove the old container if it exists (the '|| true' prevents the build from failing if it doesn't exist yet)
                     sh "docker rm -f ${CONTAINER_NAME} || true"
-                    sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
-                }
-            }
-        }
-
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    // This command updates the live Kubernetes deployment with your newly pushed Docker image
-                    sh "kubectl set image deployment/${K8S_DEPLOYMENT_NAME} ${K8S_CONTAINER_NAME}=${DOCKER_REPO}:${IMAGE_TAG}"
                     
-                    // Optional: Check the rollout status to ensure it deployed successfully
-                    sh "kubectl rollout status deployment/${K8S_DEPLOYMENT_NAME}"
+                    // 2. Run the new container in detached mode (-d)
+                    sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
                 }
             }
         }
