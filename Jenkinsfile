@@ -8,7 +8,7 @@ pipeline {
         DOCKER_REPO = 'subhani8189/my_portifilio-portfolio-web'
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
         CONTAINER_NAME = 'portfolio-web-app'
-        HOST_PORT = '80' 
+        HOST_PORT = '8081' 
     }
 
     stages {
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     sh "docker rm -f ${CONTAINER_NAME} || true"
-                    sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
+                    sh "docker run -d -p ${HOST_PORT}:8081 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
                 }
             }
         }
