@@ -1,13 +1,13 @@
 pipeline {
-    agent any
+    agent { 
+        label 'deploy-node' 
+    }
     
     environment {
         DOCKERHUB_CREDENTIALS = 'docker-hub'
         DOCKER_REPO = 'subhani8189/my_portifilio-portfolio-web'
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
-        // Define container details
         CONTAINER_NAME = 'portfolio-web-app'
-        // Using 8081 since Jenkins usually runs on 8080
         HOST_PORT = '8081' 
     }
 
@@ -41,10 +41,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    // 1. Remove the old container if it exists (the '|| true' prevents the build from failing if it doesn't exist yet)
                     sh "docker rm -f ${CONTAINER_NAME} || true"
-                    
-                    // 2. Run the new container in detached mode (-d)
                     sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
                 }
             }
