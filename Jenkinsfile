@@ -42,7 +42,8 @@ pipeline {
             steps {
                 script {
                     sh "docker rm -f ${CONTAINER_NAME} || true"
-                    sh "docker run -d -p ${HOST_PORT}:8081 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
+                    // Corrected mapping: Host Port (8081) connects to Container Port (80)
+                    sh "docker run -d -p ${HOST_PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_REPO}:${IMAGE_TAG}"
                 }
             }
         }
