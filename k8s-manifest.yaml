@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  # 1. FIXED: Changed to match Jenkins
   name: portfolio-deployment
   labels:
     app: portfolio-web
@@ -16,9 +15,7 @@ spec:
         app: portfolio-web
     spec:
       containers:
-      # 2. FIXED: Changed to match Jenkins
       - name: portfolio-container
-        # 3. FIXED: Jenkins will find this placeholder and replace it with your exact build number (like v34)
         image: subhani8189/my_portifilio-portfolio-web:__IMAGE_TAG__
         ports:
         - containerPort: 80
@@ -29,8 +26,6 @@ spec:
           limits:
             cpu: "250m"
             memory: "256Mi"
-        
-        # --- AUTO-HEALING: Liveness Probe ---
         livenessProbe:
           httpGet:
             path: /
@@ -38,8 +33,6 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 10
           failureThreshold: 3
-          
-        # --- TRAFFIC CONTROL: Readiness Probe ---
         readinessProbe:
           httpGet:
             path: /
@@ -48,7 +41,6 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           failureThreshold: 3
-
 ---
 apiVersion: v1
 kind: Service
