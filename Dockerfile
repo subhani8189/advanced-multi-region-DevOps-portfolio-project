@@ -1,4 +1,3 @@
-# Use the official, lightweight Nginx Alpine image
 FROM nginx:alpine
 
 # Remove the default Nginx index page
@@ -10,8 +9,8 @@ COPY style.css /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 COPY profile.jpg /usr/share/nginx/html/
 
-# Expose port 80
-EXPOSE 8081
+# Expose port 80 (Nginx default internal port)
+EXPOSE 80
 
 # Run Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
