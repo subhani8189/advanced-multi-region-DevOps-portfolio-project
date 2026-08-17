@@ -9,17 +9,15 @@ pipeline {
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
     }
 
-    stages {
-        stage('Clone Application Code') {
+    stage('Clone Application Code') {
             steps {
-                // 1. CRITICAL: Wipe the Jenkins workspace completely clean before pulling code
                 deleteDir() 
-                
-                // 2. Pull the fresh code from GitHub
                 checkout scm
                 
-                // 3. DEBUG: Print the first 15 lines of your HTML to the Jenkins console
-                sh "head -n 15 index.html"
+                // Print the current branch and the files in the directory
+                sh "git branch -a"
+                sh "ls -la"
+                sh "cat index.html" 
             }
         }
 
