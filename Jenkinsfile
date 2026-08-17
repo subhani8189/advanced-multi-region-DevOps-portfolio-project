@@ -12,14 +12,21 @@ pipeline {
     stages {
         stage('Clone Application Code') {
             steps {
+                // 1. CRITICAL: Wipe the Jenkins workspace completely clean before pulling code
+                deleteDir() 
+                
+                // 2. Pull the fresh code from GitHub
                 checkout scm
+                
+                // 3. DEBUG: Print the first 15 lines of your HTML to the Jenkins console
+                sh "head -n 15 index.html"
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Added --no-cache to force Docker to pull your latest HTML files
+                    // Force Docker to ignore the cache and build from scratch
                     sh "docker build --no-cache -t ${DOCKER_REPO}:${IMAGE_TAG} -t ${DOCKER_REPO}:latest ."
                 }
             }
@@ -40,12 +47,16 @@ pipeline {
         stage('Deploy to Kubernetes Cluster') {
             steps {
                 script {
-                    // FIX: Read the template and output a NEW file called deploy.yaml
+                    // Read the template and output a NEW file called deploy.yaml
                     sh "sed 's/__IMAGE_TAG__/${IMAGE_TAG}/g' portfolio-app.yaml > deploy.yaml"
                     
-                    // FIX: Apply the newly generated file
+                    // Apply the newly generated file
                     sh "kubectl --kubeconfig=/home/ubuntu/.kube/config apply -f deploy.yaml"
                     
+                    // Force K8s to terminate the old pods and pull the new image
+                    sh "kubectl --kubeconfig=/home/ubuntu/.kube/config rollout restart deployment/portfolio-deployment"
+                    
+                    // Wait for the rollout to finish successfully
                     sh "kubectl --kubeconfig=/home/ubuntu/.kube/config rollout status deployment/portfolio-deployment"
                 }
             }
