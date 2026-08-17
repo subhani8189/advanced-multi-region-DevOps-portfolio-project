@@ -9,23 +9,34 @@ pipeline {
         IMAGE_TAG = "v${env.BUILD_NUMBER}" 
     }
 
-    stage('Clone Application Code') {
+    stages {
+        stage('Clone and Debug') {
             steps {
+                // 1. Wipe workspace
                 deleteDir() 
                 checkout scm
                 
-                // Print the current branch and the files in the directory
-                sh "git branch -a"
-                sh "ls -la"
-                sh "cat index.html" 
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
                 script {
-                    // Force Docker to ignore the cache and build from scratch
+                    echo "============================================="
+                    echo "1. WHAT COMMIT DID JENKINS PULL?"
+                    echo "============================================="
+                    sh "git log -1"
+                    
+                    echo "============================================="
+                    echo "2. WHAT DOES THE HTML FILE LOOK LIKE ON DISK?"
+                    echo "============================================="
+                    sh "cat index.html | head -n 15"
+                    
+                    echo "============================================="
+                    echo "3. BUILDING DOCKER IMAGE WITHOUT CACHE"
+                    echo "============================================="
                     sh "docker build --no-cache -t ${DOCKER_REPO}:${IMAGE_TAG} -t ${DOCKER_REPO}:latest ."
+                    
+                    echo "============================================="
+                    echo "4. WHAT IS INSIDE THE NEW DOCKER IMAGE?"
+                    echo "============================================="
+                    // This creates a temporary container just to read the file inside it!
+                    sh "docker run --rm ${DOCKER_REPO}:${IMAGE_TAG} cat /usr/share/nginx/html/index.html | head -n 15"
                 }
             }
         }
