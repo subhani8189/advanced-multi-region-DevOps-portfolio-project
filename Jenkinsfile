@@ -39,8 +39,12 @@ pipeline {
         stage('Deploy to Kubernetes Cluster') {
             steps {
                 script {
-                    sh "sed -i 's/__IMAGE_TAG__/${IMAGE_TAG}/g' portfolio-app.yaml"
-                    sh "kubectl --kubeconfig=/home/ubuntu/.kube/config apply -f portfolio-app.yaml"
+                    // FIX: Read the template and output a NEW file called deploy.yaml
+                    sh "sed 's/__IMAGE_TAG__/${IMAGE_TAG}/g' portfolio-app.yaml > deploy.yaml"
+                    
+                    // FIX: Apply the newly generated file
+                    sh "kubectl --kubeconfig=/home/ubuntu/.kube/config apply -f deploy.yaml"
+                    
                     sh "kubectl --kubeconfig=/home/ubuntu/.kube/config rollout status deployment/portfolio-deployment"
                 }
             }
