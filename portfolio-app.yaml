@@ -17,6 +17,7 @@ spec:
       containers:
       - name: portfolio-container
         image: subhani8189/my_portifilio-portfolio-web:__IMAGE_TAG__
+        imagePullPolicy: Always   # <-- ADD THIS LINE
         ports:
         - containerPort: 80
         resources:
