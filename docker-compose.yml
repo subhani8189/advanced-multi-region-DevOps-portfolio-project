@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: subhani8189/devops-portfolio:latest
+    container_name: portfolio-web
+    ports:
+      - "8080:80"
+    restart: always
