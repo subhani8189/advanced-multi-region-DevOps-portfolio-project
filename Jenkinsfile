@@ -3,7 +3,6 @@ pipeline {
     
     environment {
         DOCKER_IMAGE = 'subhani8189/devops-portfolio:latest'
-        // This matches the ID you just created in Jenkins
         DOCKER_CREDS = 'dockerhub-creds' 
     }
     
