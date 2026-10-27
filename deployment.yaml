@@ -5,7 +5,7 @@ metadata:
   labels:
     app: portfolio
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: portfolio
@@ -17,5 +17,19 @@ spec:
       containers:
       - name: portfolio-web
         image: subhani8189/devops-portfolio:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
+        # Auto-healing: Kubernetes will restart the container if the website crashes
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
